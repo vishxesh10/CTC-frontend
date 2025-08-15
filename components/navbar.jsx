@@ -1,9 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
-
 export default function Navbar() {
   return (
-    <header className="flex justify-around p-2 items-center bg-white">
+    <header className="flex justify-around p-2 items-center bg-white sticky top-0 z-50">
     <div className="flex items-center">
       <Image src="/ctc-logo.svg" alt="Logo" width={180} height={150}
         className="logo" />
@@ -16,5 +15,6 @@ export default function Navbar() {
       <Link href="/contact" className="hover:text-blue-600"> Contact us</Link>
     </nav>
     </header>
+    
   )
 }

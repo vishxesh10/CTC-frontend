@@ -1,12 +1,13 @@
 import Navbar from "../../components/navbar";
 import Image from "next/image";
 import Link from "next/link";
+import Footer from "../../components/footer";
 
 export default function Products() {
   return (
     <>
-      <Navbar />
-      <h2 className="text-4xl font-bold px-10 m-5">Our Products</h2>
+      <Navbar/>
+      <h2 className="text-4xl font-bold px-10 m-5 mt-10">Our Products</h2>
       <p className=" px-10 m-5 text-xl">explore our products</p>
       <div className="flex justify-around items-center flex-wrap gap-5 p-5">
         <div className="product">
@@ -74,6 +75,7 @@ export default function Products() {
             Order Now </Link>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }
