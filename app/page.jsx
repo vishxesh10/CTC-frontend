@@ -20,45 +20,45 @@ export default function Home() {
           <Image src="/hero-photo.jpg" alt="Hero Image" width={700} height={600} className="rounded-lg shadow-lg" />
         </div>
       </main>
-      <section className="p-20 text-blue-950">
+      <section className="p-5 text-blue-950">
         <h2 className="text-3xl font-bold ml-10">Featured Products</h2>
         <p className="pl-10 text-gray-500">Handpicked bestsellers ready to shop</p>
         <div className="flex justify-around items-center flex-wrap gap-5 p-5">
-          <div className="f-row">
-            <Image src={"/hero-photo.jpg"} alt="product" width={300} height={150}
-              className="rounded"></Image>
-            <h3>Beakers</h3>
-            <p>Monocular, 40x-1000x magnification, LED ilumination <br />
-              <span className="text-blue-600">₹ 1,500</span></p>
-            <Link href={"/"} className=" font-semibold hover:text-blue-900">Order Now </Link>
-          </div>
-          <div className="f-row">
-            <Image src={"/hero-photo.jpg"} alt="product" width={300} height={150}
-              className="rounded"></Image>
-            <h3>Beakers</h3>
-            <p>Monocular, 40x-1000x magnification, LED ilumination <br />
-              <span className="text-blue-600">₹ 1,500</span></p>
-            <Link href={"/"} className=" font-semibold hover:text-blue-900">Order Now </Link>
-          </div>
-          <div className="f-row">
-            <Image src={"/hero-photo.jpg"} alt="product" width={300} height={150}
-              className="rounded"></Image>
-            <h3>Beakers</h3>
-            <p>Monocular, 40x-1000x magnification, LED ilumination <br />
-              <span className="text-blue-600">₹ 1,500</span></p>
-            <Link href={"/"} className=" font-semibold hover:text-blue-900">Order Now </Link>
-          </div>
-          <div className="f-row">
-            <Image src={"/hero-photo.jpg"} alt="product" width={300} height={150}
-              className="rounded"></Image>
-            <h3>Beakers</h3>
-            <p>Monocular, 40x-1000x magnification, LED ilumination <br />
-              <span className="text-blue-600">₹ 1,500</span></p>
-            <Link href={"/"} className=" font-semibold hover:text-blue-900">Order Now </Link>
-          </div>
+        <div className="product">
+          <Image src={"/beaker3.png"} alt="product" width={300} height={150} className="rounded"></Image>
+          <h3 >Beakers</h3>
+          <p>Monocular, 40x-1000x magnification, LED ilumination <br />
+            <span className="text-blue-600"> ₹ 1,500</span></p>
+          <Link href={"/"} className="font-semibold hover:text-blue-900">
+            Order Now </Link>
+        </div>
+        <div className="product">
+          <Image src={"/beaker3.png"} alt="product" width={300} height={150} className="rounded"></Image>
+          <h3 >Beakers</h3>
+          <p>Monocular, 40x-1000x magnification, LED ilumination <br />
+            <span className="text-blue-600"> ₹ 1,500</span></p>
+          <Link href={"/"} className="font-semibold hover:text-blue-900">
+            Order Now </Link>
+        </div>
+        <div className="product">
+          <Image src={"/beaker3.png"} alt="product" width={300} height={150} className="rounded"></Image>
+          <h3 >Beakers</h3>
+          <p>Monocular, 40x-1000x magnification, LED ilumination <br />
+            <span className="text-blue-600"> ₹ 1,500</span></p>
+          <Link href={"/"} className="font-semibold hover:text-blue-900">
+            Order Now </Link>
+        </div>
+        <div className="product">
+          <Image src={"/beaker3.png"} alt="product" width={300} height={150} className="rounded"></Image>
+          <h3 >Beakers</h3>
+          <p>Monocular, 40x-1000x magnification, LED ilumination <br />
+            <span className="text-blue-600"> ₹ 1,500</span></p>
+          <Link href={"/"} className="font-semibold hover:text-blue-900">
+            Order Now </Link>
+        </div>
         </div>
       </section>
-      <Footer />
+      <Footer/>
     </>
   );
 }

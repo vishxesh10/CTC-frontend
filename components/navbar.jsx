@@ -10,10 +10,10 @@ export default function Navbar() {
       <h1 className="text-blue-700 font-bold text-xl -ml-8 ">Chitra Trading Company</h1>
     </div>
     <nav className="flex gap-5 text-[18px] font-semibold ">
-      <Link href={"/"}>Home</Link>
-      <Link href="/products"> Products</Link>
-      <Link href="/about"> About</Link>
-      <Link href="/contact"> Contact us</Link>
+      <Link href={"/"} className="hover:text-blue-600">Home</Link>
+      <Link href="/products" className="hover:text-blue-600"> Products</Link>
+      <Link href="/about" className="hover:text-blue-600"> About</Link>
+      <Link href="/contact" className="hover:text-blue-600"> Contact us</Link>
     </nav>
     </header>
   )

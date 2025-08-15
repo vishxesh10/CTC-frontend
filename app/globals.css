@@ -4,11 +4,9 @@
   --background: #ffffff;
   --foreground: #171717;
 }
-.f-row{
-  @apply flex flex-col;
-  div{
-    @apply flex items-center justify-between;
-  }
+.product{
+  @apply flex flex-col gap-2 bg-gray-100 p-5 m-5 rounded-lg shadow-md;
+
   h3{
     @apply text-2xl font-bold text-blue-950;
   }
