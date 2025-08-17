@@ -15,7 +15,9 @@ export default function Products() {
           <h3 >Beakers</h3>
           <p>Monocular, 40x-1000x magnification, LED ilumination <br />
             <span className="text-blue-600"> ₹ 1,500</span></p>
-          <Link href={"/"} className="font-semibold hover:text-blue-900">
+          <Link href={{
+            pathname: "/products/orders", query: { productName: "Beakers", productId: "1", price:"499" },}} 
+            className="font-semibold hover:text-blue-900">
             Order Now </Link>
         </div>
         <div className="product">
@@ -23,55 +25,9 @@ export default function Products() {
           <h3 >Beakers</h3>
           <p>Monocular, 40x-1000x magnification, LED ilumination <br />
             <span className="text-blue-600"> ₹ 1,500</span></p>
-          <Link href={"/"} className="font-semibold hover:text-blue-900">
-            Order Now </Link>
-        </div>
-        <div className="product">
-          <Image src={"/beaker3.png"} alt="product" width={300} height={150} className="rounded"></Image>
-          <h3 >Beakers</h3>
-          <p>Monocular, 40x-1000x magnification, LED ilumination <br />
-            <span className="text-blue-600"> ₹ 1,500</span></p>
-          <Link href={"/"} className="font-semibold hover:text-blue-900">
-            Order Now </Link>
-        </div>
-        <div className="product">
-          <Image src={"/beaker3.png"} alt="product" width={300} height={150} className="rounded"></Image>
-          <h3 >Beakers</h3>
-          <p>Monocular, 40x-1000x magnification, LED ilumination <br />
-            <span className="text-blue-600"> ₹ 1,500</span></p>
-          <Link href={"/"} className="font-semibold hover:text-blue-900">
-            Order Now </Link>
-        </div>
-        <div className="product">
-          <Image src={"/beaker3.png"} alt="product" width={300} height={150} className="rounded"></Image>
-          <h3 >Beakers</h3>
-          <p>Monocular, 40x-1000x magnification, LED ilumination <br />
-            <span className="text-blue-600"> ₹ 1,500</span></p>
-          <Link href={"/"} className="font-semibold hover:text-blue-900">
-            Order Now </Link>
-        </div>
-        <div className="product">
-          <Image src={"/beaker3.png"} alt="product" width={300} height={150} className="rounded"></Image>
-          <h3 >Beakers</h3>
-          <p>Monocular, 40x-1000x magnification, LED ilumination <br />
-            <span className="text-blue-600"> ₹ 1,500</span></p>
-          <Link href={"/"} className="font-semibold hover:text-blue-900">
-            Order Now </Link>
-        </div>
-        <div className="product">
-          <Image src={"/beaker3.png"} alt="product" width={300} height={150} className="rounded"></Image>
-          <h3 >Beakers</h3>
-          <p>Monocular, 40x-1000x magnification, LED ilumination <br />
-            <span className="text-blue-600"> ₹ 1,500</span></p>
-          <Link href={"/"} className="font-semibold hover:text-blue-900">
-            Order Now </Link>
-        </div> 
-        <div className="product">
-          <Image src={"/beaker3.png"} alt="product" width={300} height={150} className="rounded"></Image>
-          <h3 >Beakers</h3>
-          <p>Monocular, 40x-1000x magnification, LED ilumination <br />
-            <span className="text-blue-600"> ₹ 1,500</span></p>
-          <Link href={"/"} className="font-semibold hover:text-blue-900">
+          <Link href={{
+            pathname: "/products/orders", query: { productName: "Beakers", productId: "1", price:"999" },}}  
+            className="font-semibold hover:text-blue-900">
             Order Now </Link>
         </div>
       </div>
