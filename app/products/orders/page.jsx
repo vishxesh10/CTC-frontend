@@ -23,7 +23,6 @@ export default function OrderPage() {
 
   const fullAddress = `${address}, ${city}, ${state}, ${zip}`;
 
-  // Make sure the field names match FastAPI Order model
   const orderData = {name, email, address: fullAddress, product: productName, productId, price, quantity };
 
   try {
@@ -35,7 +34,6 @@ export default function OrderPage() {
 
     if (response.ok) {
       alert("✅ Order submitted successfully!");
-      // Optionally reset form here
     } else {
       const errorData = await response.json();
       console.error("Error:", errorData);
