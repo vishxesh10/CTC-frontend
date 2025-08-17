@@ -27,7 +27,7 @@ export default function OrderPage() {
   const orderData = {name, email, address: fullAddress, product: productName, productId, price, quantity };
 
   try {
-    const response = await fetch("http://localhost:8000/send-order", {
+    const response = await fetch("https://ctc-backend-lygo12pk0-visheshs-projects-77979655.vercel.app/send-order", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(orderData),
