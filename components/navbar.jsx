@@ -1,45 +1,111 @@
+// components/navbar.jsx
 "use client";
-import Image from "next/image"
-import Link from "next/link"
-import { useState } from "react";
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 5);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { href: '/', label: 'Home' },
+    { href: '/products', label: 'Products' },
+    { href: '/about', label: 'About' },
+    { href: '/contact', label: 'Contact' },
+  ];
 
   return (
-    <header className="flex justify-around p-2 items-center max-sm:items-start bg-white sticky top-0 z-50">
-      <div className="flex items-center">
-        <Image src="/ctc-logo.svg" alt="Logo" width={180} height={150}
-          className=" max-sm:w-[160px] max-sm:-ml-8 " />
-        <h1 className="text-blue-700 font-bold text-xl -ml-8 max-sm:text-[16px] max-sm:-ml-20 max-sm:-mt-1 ">Chitra Trading Company</h1>
-      </div>
+    <header 
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-white shadow-sm py-1' : 'bg-white/90 backdrop-blur-sm py-2'
+      }`}
+    >
+      <div className="container mx-auto px-4">
+        <div className="flex justify-between items-center h-14">
+          <div className="flex items-center">
+            <Link href="/" className="flex items-center">
+              <Image 
+                src="/Gemini_Generated_Image_wo3yg4wo3yg4wo3y.png" 
+                alt="CTC Logo" 
+                width={120} 
+                height={50}
+                className="mr-3 h-10 w-auto"
+                priority
+              />
+              <h1 className="text-blue-700 font-bold text-lg hidden md:block">
+                Chitra Trading
+              </h1>
+            </Link>
+          </div>
 
-      {/* Desktop Nav */}
-      <nav className="flex gap-5 text-[18px] font-semibold max-sm:hidden">
-        <Link href={"/"} className="hover:text-blue-600 max-sm:text-[15px] ">Home</Link>
-        <Link href="/products" className="hover:text-blue-600 max-sm:text-[15px]"> Products</Link>
-        <Link href="/about" className="hover:text-blue-600 max-sm:text-[15px]"> About</Link>
-        <Link href="/contact" className="hover:text-blue-600 max-sm:text-[15px]"> Contact us</Link>
-      </nav>
-      {/* Mobile Menu Icon */}
-      <button
-        className="sm:hidden flex flex-col justify-center items-center w-8 h-8 -mr-10 "
-        onClick={() => setMenuOpen(!menuOpen)}
-        aria-label="Toggle menu"
-      >
-        <span className="block w-6 h-0.5 bg-blue-700 mb-1"></span>
-        <span className="block w-6 h-0.5 bg-blue-700 mb-1"></span>
-        <span className="block w-6 h-0.5 bg-blue-700"></span>
-      </button>
-      {/* Mobile Nav */}
-      {menuOpen && (
-        <nav className="absolute top-16 right-4 bg-white shadow-lg rounded p-4 flex flex-col gap-3 text-[16px] font-semibold sm:hidden z-50">
-          <Link href={"/"} className="hover:text-blue-600" onClick={() => setMenuOpen(false)}>Home</Link>
-          <Link href="/products" className="hover:text-blue-600" onClick={() => setMenuOpen(false)}>Products</Link>
-          <Link href="/about" className="hover:text-blue-600" onClick={() => setMenuOpen(false)}>About</Link>
-          <Link href="/contact" className="hover:text-blue-600" onClick={() => setMenuOpen(false)}>Contact us</Link>
-        </nav>
-      )}
+          <nav className="hidden md:flex items-center space-x-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`text-sm font-medium transition-colors ${
+                  pathname === link.href 
+                    ? 'text-blue-600' 
+                    : 'text-gray-700 hover:text-blue-600'
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          <button
+            className="md:hidden p-1.5"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <div className="w-5 flex flex-col items-end">
+              <span className={`block h-[2px] bg-blue-700 transition-all duration-300 ${
+                isMenuOpen ? 'w-5 rotate-45 translate-y-[7px]' : 'w-5 mb-1.5'
+              }`}></span>
+              <span className={`block h-[2px] bg-blue-700 transition-all duration-300 ${
+                isMenuOpen ? 'opacity-0' : 'w-4 mb-1.5'
+              }`}></span>
+              <span className={`block h-[2px] bg-blue-700 transition-all duration-300 ${
+                isMenuOpen ? 'w-5 -rotate-45 -translate-y-[7px]' : 'w-3'
+              }`}></span>
+            </div>
+          </button>
+        </div>
+
+        {isMenuOpen && (
+          <div className="md:hidden bg-white shadow-lg rounded-lg mt-2 p-3">
+            <nav className="flex flex-col space-y-3">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`py-1.5 px-3 rounded text-sm ${
+                    pathname === link.href
+                      ? 'bg-blue-50 text-blue-600'
+                      : 'text-gray-700 hover:bg-gray-50'
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+        )}
+      </div>
     </header>
-  )
+  );
 }
